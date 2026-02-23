@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ingreso inferior a LP - Millones</title>
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+google.charts.load('current', {packages:['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+  var data = google.visualization.arrayToDataTable([
+    ['Indicador', '2008', '2018'],
+    ['Inferior a LP (millones)', 54.7, 61.1],
+    ['Inferior a LPE (millones)', 18.7, 21.0]
+  ]);
+
+  var options = {
+    title: 'Ingreso inferior a líneas de pobreza (millones de personas)',
+    legend: { position: 'top' },
+    hAxis: { title: 'Indicador' },
+    vAxis: { title: 'Millones de personas', minValue: 0 },
+    colors: ['#2ca02c', '#ff7f0e']
+  };
+
+  var chart = new google.visualization.ColumnChart(
+    document.getElementById('chart_div')
+  );
+
+  chart.draw(data, options);
+}
+</script>
+</head>
+
+<body style="font-family: Arial, sans-serif;">
+<h2>Millones de personas (2008 vs 2018)</h2>
+<div id="chart_div" style="width:100%; max-width:1000px; height:450px;"></div>
+</body>
+</html>
